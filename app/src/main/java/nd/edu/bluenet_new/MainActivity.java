@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public static final ParcelUuid TEST_SERVICE = ParcelUuid.fromString("00001809-0000-1000-8000-00805f9b34fb");
+    public static String CLIENT_CHARACTERISTIC_CONFIG = "00002902-0000-1000-8000-00805f9b34fb";
     private static final int REQUEST_ENABLE_BT = 1;
 //    private static final long SCAN_PERIOD = 10000;
 
