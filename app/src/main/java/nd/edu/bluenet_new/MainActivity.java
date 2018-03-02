@@ -130,6 +130,13 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<ScanFilter> filters = new ArrayList<ScanFilter>();
         filters.add(ResultsFilter);
 
+        //https://developer.android.com/reference/android/bluetooth/le/ScanSettings.html
+        //https://stackoverflow.com/questions/40720638/how-to-set-ble-scan-interval-and-windows-no-just-choose-mode-in-android
+
+        //Possibly better library (open source): http://altbeacon.github.io/android-beacon-library/
+        //  BUT!!!! https://github.com/AltBeacon/android-beacon-library/issues/473
+        //  essentially, there is a limit to the frequency of scans built into Android
+
         //scan settings
         ScanSettings settings = new ScanSettings.Builder()
                 //.setCallbackType() //int
@@ -202,6 +209,11 @@ public class MainActivity extends AppCompatActivity {
     //BLE ADVERTISE//
     //********//
     private void startLeAdvertising(byte[] data_out){
+        //https://developer.android.com/reference/android/bluetooth/le/AdvertiseSettings.html
+
+        //What effect does the mode and power have on connection time?
+        //The mode is a replacement for advertisement frequency
+
         AdvertiseSettings settings = new AdvertiseSettings.Builder()
                 .setAdvertiseMode(AdvertiseSettings.ADVERTISE_MODE_LOW_LATENCY) //3 modes: LOW_POWER, BALANCED, LOW_LATENCY
                 .setConnectable(false)
